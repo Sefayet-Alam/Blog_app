@@ -12,5 +12,5 @@
       "dest": "/server.js"
     }
   ],
-  "regions": ["iad1"]
+  "regions": ["sgp1"] 
 }
