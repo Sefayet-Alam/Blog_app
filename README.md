@@ -7,7 +7,7 @@ This project is a full-stack web application that allows users to manage blogs, 
 ## Live Demo
 
 - **Frontend**: [Deployed on Netlify](https://www.netlify.com/)  
-- **Backend**: [Deployed on Vercel](https://www.vercel.com/)
+- **Backend**: [Deployed on Vercel](https://blog-app-murex-sigma.vercel.app/)
 
 ## Images
 
