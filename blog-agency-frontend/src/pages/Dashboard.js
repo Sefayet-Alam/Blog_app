@@ -4,7 +4,6 @@ import {
   Container,
   Typography,
   Button,
-  TextField,
   Table,
   TableBody,
   TableCell,
@@ -16,9 +15,9 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
+  TextField,
 } from "@mui/material";
 
-// Use environment variable for API base URL
 const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 if (!API_BASE_URL) {
@@ -28,39 +27,51 @@ if (!API_BASE_URL) {
 const Dashboard = () => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [data, setData] = useState({ blogs: [], teams: [], services: [] });
+  const [selectedEntity, setSelectedEntity] = useState("blogs"); // Default selection
   const [openDialog, setOpenDialog] = useState(false);
-  const [currentEntity, setCurrentEntity] = useState("");
   const [currentRow, setCurrentRow] = useState(null);
   const [formData, setFormData] = useState({});
 
   useEffect(() => {
-    fetchData();
-  }, [token]);
+    fetchData(selectedEntity); // Pass selectedEntity as a dependency
+    return () => {
+      setData((prevData) => ({
+        ...prevData,
+        [selectedEntity]: [], // Clear data when switching sections
+      }));
+    };
+  }, [token, selectedEntity]); // Fetch data whenever token or selectedEntity changes
 
-  const fetchData = async () => {
+  const fetchData = async (entity) => {
     if (!token) {
       console.error("Authorization token is missing!");
       return;
     }
 
     try {
-      const blogsResponse = await axios.get(`${API_BASE_URL}/blogs`, {
+      const response = await axios.get(`${API_BASE_URL}/${entity}`, {
         headers: { Authorization: `${token}` },
       });
-      const teamsResponse = await axios.get(`${API_BASE_URL}/teams`, {
-        headers: { Authorization: `${token}` },
-      });
-      const servicesResponse = await axios.get(`${API_BASE_URL}/services`, {
-        headers: { Authorization: `${token}` },
-      });
-      setData({
-        blogs: blogsResponse.data,
-        teams: teamsResponse.data,
-        services: servicesResponse.data,
-      });
+
+      setData((prevData) => ({
+        ...prevData,
+        [entity]: response.data,
+      }));
     } catch (error) {
       console.error("Error fetching data:", error);
     }
+  };
+
+  const handleOpenDialog = (entity, row = null) => {
+    setCurrentRow(row);
+    setFormData(row || {});
+    setOpenDialog(true);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+    setFormData({});
+    setCurrentRow(null);
   };
 
   const handleSave = async () => {
@@ -70,63 +81,35 @@ const Dashboard = () => {
     }
 
     try {
-      const url = currentRow?._id
-        ? `${API_BASE_URL}/${currentEntity}/${currentRow._id}`
-        : `${API_BASE_URL}/${currentEntity}`;
-      const method = currentRow?._id ? "put" : "post";
+      const url = currentRow
+        ? `${API_BASE_URL}/${selectedEntity}/${currentRow._id}`
+        : `${API_BASE_URL}/${selectedEntity}`;
+      const method = currentRow ? "put" : "post";
 
-      console.log("Saving Data:", formData);
-      const response = await axios[method](url, formData, {
+      await axios[method](url, formData, {
         headers: { Authorization: `${token}` },
       });
-
-      console.log("Save Successful:", response.data);
-      fetchData();
+      fetchData(selectedEntity); // Refresh data after saving
       handleCloseDialog();
     } catch (error) {
       console.error("Error saving data:", error);
     }
   };
 
-  const handleDelete = async (entity, id) => {
+  const handleDelete = async (id) => {
     if (!token) {
       console.error("Authorization token is missing!");
       return;
     }
 
-    console.log("Deleting ID:", id);
     try {
-      const response = await axios.delete(`${API_BASE_URL}/${entity}/${id}`, {
+      await axios.delete(`${API_BASE_URL}/${selectedEntity}/${id}`, {
         headers: { Authorization: `${token}` },
       });
-
-      console.log("Delete Successful:", response.data);
-      fetchData();
+      fetchData(selectedEntity); // Refresh data after deleting
     } catch (error) {
       console.error("Error deleting data:", error);
     }
-  };
-
-  const handleOpenDialog = (entity, row = null) => {
-    setCurrentEntity(entity);
-    setCurrentRow(row);
-
-    const initialFormData = row ||
-      (entity === "blogs"
-        ? { title: "", content: "", author: "", image: "" }
-        : entity === "teams"
-        ? { name: "", role: "", image: "", bio: "" }
-        : { name: "", description: "", icon: "" });
-
-    setFormData(initialFormData);
-    setOpenDialog(true);
-  };
-
-  const handleCloseDialog = () => {
-    setOpenDialog(false);
-    setFormData({});
-    setCurrentRow(null);
-    setCurrentEntity("");
   };
 
   const handleInputChange = (e) => {
@@ -134,11 +117,8 @@ const Dashboard = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const renderTable = (entity, rows, columns) => (
-    <TableContainer component={Paper} sx={{ marginBottom: 4 }}>
-      <Typography variant="h6" sx={{ margin: 2 }}>
-        {entity.charAt(0).toUpperCase() + entity.slice(1)}
-      </Typography>
+  const renderTable = (rows, columns) => (
+    <TableContainer component={Paper} sx={{ marginTop: 4 }}>
       <Table>
         <TableHead>
           <TableRow>
@@ -150,7 +130,7 @@ const Dashboard = () => {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow key={row._id}>
+            <TableRow key={row._id}> {/* Ensure _id is used as the key */}
               {columns.map((column) => (
                 <TableCell key={column}>
                   {column === "image" || column === "icon" ? (
@@ -165,8 +145,10 @@ const Dashboard = () => {
                 </TableCell>
               ))}
               <TableCell>
-                <Button onClick={() => handleOpenDialog(entity, row)}>Edit</Button>
-                <Button color="error" onClick={() => handleDelete(entity, row._id)}>
+                <Button onClick={() => handleOpenDialog(selectedEntity, row)}>
+                  Edit
+                </Button>
+                <Button color="error" onClick={() => handleDelete(row._id)}>
                   Delete
                 </Button>
               </TableCell>
@@ -177,43 +159,59 @@ const Dashboard = () => {
     </TableContainer>
   );
 
+  const entityColumns = {
+    blogs: ["title", "author", "image", "content"],
+    teams: ["name", "role", "image", "bio"],
+    services: ["name", "description", "icon"],
+  };
+
   return (
     <Container>
-      <Typography variant="h4" sx={{ marginBottom: 4 }}>
+      <Typography variant="h4" sx={{ marginBottom: 4, textAlign: "center" }}>
         Dashboard
       </Typography>
 
-      <Button
-        variant="contained"
-        onClick={() => handleOpenDialog("blogs")}
-        sx={{ marginBottom: 4 }}
-      >
-        Create Blog
-      </Button>
-      {renderTable("blogs", data.blogs, ["title", "author", "image", "content"])}
+      <div style={{ marginBottom: "20px" }}>
+        <Typography variant="h5" sx={{ marginBottom: 2 }}>
+          Choose Type
+        </Typography>
+        <Button
+          variant="outlined"
+          onClick={() => setSelectedEntity("blogs")}
+          sx={{ marginRight: 2 }}
+        >
+          Blogs
+        </Button>
+        <Button
+          variant="outlined"
+          onClick={() => setSelectedEntity("teams")}
+          sx={{ marginRight: 2 }}
+        >
+          Teams
+        </Button>
+        <Button
+          variant="outlined"
+          onClick={() => setSelectedEntity("services")}
+          sx={{ marginRight: 2 }}
+        >
+          Services
+        </Button>
+      </div>
 
       <Button
         variant="contained"
-        onClick={() => handleOpenDialog("teams")}
+        onClick={() => handleOpenDialog(selectedEntity)}
         sx={{ marginBottom: 4 }}
       >
-        Create Team Member
+        Create {selectedEntity.charAt(0).toUpperCase() + selectedEntity.slice(1)}
       </Button>
-      {renderTable("teams", data.teams, ["name", "role", "image", "bio"])}
 
-      <Button
-        variant="contained"
-        onClick={() => handleOpenDialog("services")}
-        sx={{ marginBottom: 4 }}
-      >
-        Create Service
-      </Button>
-      {renderTable("services", data.services, ["name", "description", "icon"])}
+      {renderTable(data[selectedEntity], entityColumns[selectedEntity])}
 
       <Dialog open={openDialog} onClose={handleCloseDialog} fullWidth>
-        <DialogTitle>{currentRow ? "Edit" : "Create"} {currentEntity}</DialogTitle>
+        <DialogTitle>{currentRow ? "Edit" : "Create"} {selectedEntity}</DialogTitle>
         <DialogContent>
-          {Object.keys(formData).map((key) => (
+          {entityColumns[selectedEntity].map((key) => (
             <TextField
               key={key}
               margin="dense"

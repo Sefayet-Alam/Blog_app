@@ -1,26 +1,58 @@
 .dashboard {
     padding: 20px;
+    background-color: #f5f5f5; /* Light gray background for a professional look */
+    font-family: 'Roboto', sans-serif; /* Use a clean, modern font */
 }
 
 .dashboard-title {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333; /* Dark gray for text color */
+    margin-top: 20px; /* Added margin above */
 }
 
 .dashboard-tabs {
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
 .dashboard-content {
     margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* White background for content */
+    border-radius: 12px; /* Increased border radius for a smoother look */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Softer and deeper shadow for a modern feel */
 }
 
 .dashboard-table {
     margin-top: 20px;
+    background-color: #ffffff; /* Table background */
+    border-radius: 12px; /* Rounded corners for the table */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    overflow: hidden; /* To make sure borders don't overlap */
 }
 
 .add-button {
     margin-bottom: 20px;
+    background-color: #1976d2; /* MUI primary color */
+    color: #ffffff;
+    font-weight: 500;
+    padding: 12px 20px;
+    border-radius: 8px; /* Rounded corners */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+}
+
+.add-button:hover {
+    background-color: #1565c0; /* Slightly darker shade for hover */
+    transform: scale(1.05); /* Subtle scale-up effect on hover */
 }
 
 .modal-content {
@@ -28,9 +60,79 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px; 
+    width: 100%;
+    max-width: 450px; /* Increased max width for better modal size */
+    background: #ffffff;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for modals */
+    padding: 30px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+button {
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 6px; /* Smooth borders for buttons */
+}
+
+button:hover {
+    filter: brightness(0.9);
+}
+
+/* Add smooth fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 1rem; /* Improved font size for better readability */
+    color: #333; /* Dark text for contrast */
+}
+
+th {
+    background-color: #1976d2;
+    color: #ffffff;
+    text-align: left;
+    padding: 15px;
+    font-size: 1.1rem; /* Slightly larger font for table headers */
+    font-weight: 600; /* Bold font for header */
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #fafafa; /* Light gray for alternate rows */
+}
+
+tr:hover {
+    background-color: #e8f1fd; /* Subtle blue highlight on hover */
+}
+
+/* Add responsive design for smaller screens */
+@media (max-width: 768px) {
+    .dashboard-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .add-button {
+        width: 100%;
+        padding: 14px;
+    }
 }
