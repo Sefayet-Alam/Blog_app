@@ -44,7 +44,8 @@ To deploy the frontend:
 
 2. Host the `build/` directory on [Netlify](https://www.netlify.com/) or any static hosting platform.
 
-3. update: npm run build , deploy --prod , publish: build
+3. update: npm run build , netlify deploy --prod
+, publish: build
 ## Dependencies
 
 The frontend uses the following libraries and frameworks:
