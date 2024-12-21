@@ -31,3 +31,6 @@ QNA.md
 
 # Vercel configuration
 .vercel
+
+# Local Netlify folder
+.netlify
