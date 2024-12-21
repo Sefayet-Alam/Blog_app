@@ -7,7 +7,7 @@ This project is a full-stack web application that allows users to manage blogs, 
 ## Live Demo
 
 - **Frontend**: https://blog-agency-sef.netlify.app/
-- **Backend**: https://blog-p2sdvwjr1-sefayets-projects.vercel.app/
+- **Backend**: https://sefayet-blog-app.vercel.app/
 
 ## Images
 
