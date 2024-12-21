@@ -21,7 +21,7 @@ const Contact = () => {
         <div className="contact-info">
           <div className="profile-section">
             <img
-              src="https://media.licdn.com/dms/image/v2/D5603AQEmWRSvG-m3eg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1702235164264?e=1740009600&v=beta&t=PUHcJ8JLdzX5orkzxzxEKfmbHYlcJ76ujxuTWLFuoXw"
+              src="https://cdn.pixabay.com/photo/2023/11/21/13/29/ai-generated-8403411_1280.jpg"
               alt="Profile"
               className="profile-pic"
             />
