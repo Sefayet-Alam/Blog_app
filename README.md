@@ -8,7 +8,9 @@ This project is a full-stack web application that allows users to manage blogs, 
 
 - **Frontend**: https://blog-agency-sef.netlify.app/
 - **Backend**: https://sefayet-blog-app.vercel.app/
-
+- 
+ (Backend is configured at:  https://sefayet-blog-app.vercel.app/api) <br/>
+ 
 ## Images
 
 ![BLOGAPP](https://github.com/user-attachments/assets/63fe467c-ac76-4757-b864-3cce05635744)
