@@ -6,7 +6,7 @@ This project is a full-stack web application that allows users to manage blogs, 
 
 ## Live Demo
 
-- **Frontend**: [Deployed on Netlify](https://www.netlify.com/)  
+- **Frontend**: https://blog-agency-sef.netlify.app/
 - **Backend**: https://blog-p2sdvwjr1-sefayets-projects.vercel.app/
 
 ## Images
