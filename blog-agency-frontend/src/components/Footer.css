@@ -1,14 +1,16 @@
 /* Base Footer Styles */
 .footer {
-  background-color: #f8f9fa;
+  background-color: #2c3e50; /* Dark blue-gray background */
   text-align: center;
-  padding: 1.5rem 0;
-  font-size: 14px;
-  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  padding: 2rem 0; /* Increased padding for a more spacious look */
+  font-size: 16px;
+  color: #ecf0f1; /* Light gray text */
+  box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.2);
   margin-top: auto; /* Push footer to bottom */
+  transition: background-color 0.3s ease;
 }
 
-/* Content Wrapping */
+/* Footer Content Wrapping */
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -17,24 +19,45 @@
 
 /* Contact Links */
 .contact-links {
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 .contact-links a {
-  color: #6c757d; /* Neutral color */
-  margin: 0 10px;
+  color: #ecf0f1; /* Light gray color */
+  margin: 0 15px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .contact-links a:hover {
-  color: #0d6efd; /* Hover color (Bootstrap Blue) */
+  color: #ff7f50; /* Soft orange on hover */
+  transform: translateY(-3px); /* Slight lift effect */
 }
 
 .contact-links .icon {
-  margin-right: 5px;
+  margin-right: 8px;
+  font-size: 20px; /* Slightly larger icon size */
+}
+
+/* Footer Bottom Copyright */
+.footer-bottom {
+  margin-top: 2rem;
+  font-size: 14px;
+  color: #bdc3c7; /* Lighter gray for the copyright text */
+}
+
+.footer-bottom a {
+  color: #bdc3c7;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-bottom a:hover {
+  color: #ff7f50; /* Soft orange color on hover */
 }
 
 /* Ensure Footer Stays at Bottom Without Overlap */
@@ -54,4 +77,20 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .footer-content {
+    padding: 0 10px;
+  }
+
+  .contact-links a {
+    font-size: 16px;
+    margin: 0 8px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
 }

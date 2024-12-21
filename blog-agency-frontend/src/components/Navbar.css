@@ -1,92 +1,155 @@
-/* Navbar.css */
+/* General Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
-  color: #fff;
-  padding: 10px 20px;
-}
-
-.navbar-logo a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.navbar-links {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar-links li {
-  display: inline-block;
-}
-
-.navbar-links a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
-
-.navbar-links a:hover {
-  color: #ff7f50;
-}
-
-.logout-button {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.logout-button:hover {
-  color: #ff7f50;
-}
-
-/* Search Bar */
-.navbar-search {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  margin-right: 20px;
-}
-
-.navbar-search input {
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px 0 0 4px;
-  font-size: 14px;
-  outline: none;
-}
-
-.navbar-search button {
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 0 4px 4px 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.navbar-search button:hover {
-  background-color: #2c81c4;
+  background-color: #2c3e50; /* Dark blue-gray background for a professional look */
+  padding: 15px 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-logo {
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
+}
+
+.navbar-logo a {
+  margin-left: 10px;
+  font-size: 24px;
+  color: #ecf0f1; /* Light gray color for the logo text */
+  text-decoration: none;
   font-weight: bold;
-  color: #333;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo a:hover {
+  color: #ff7f50; /* Soft orange color on hover */
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-links li {
+  margin: 0 20px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #ecf0f1; /* Light gray for links */
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #ff7f50; /* Soft orange color on hover */
+  transform: translateY(-3px); /* Slight lift effect on hover */
+}
+
+.logout-button {
+  background-color: #e74c3c; /* Red color for logout */
+  border: none;
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #c0392b; /* Darker red on hover */
+  transform: translateY(-3px); /* Slight lift effect on hover */
+}
+
+/* Mobile Specific Styles */
+.mobile-menu-icon {
+  display: none;
+  cursor: pointer;
+  color: #ecf0f1; /* Light gray color for the hamburger icon */
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-icon:hover {
+  color: #ff7f50; /* Soft orange color on hover */
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #34495e; /* Slightly lighter gray-blue for the mobile drawer */
+  box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 9999;
+  transition: transform 0.3s ease;
+}
+
+.mobile-drawer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mobile-drawer ul li {
+  margin: 20px 0;
+}
+
+.mobile-drawer a {
+  text-decoration: none;
+  color: #ecf0f1;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-drawer a:hover {
+  color: #ff7f50; /* Soft orange color on hover */
+  transform: translateY(-3px); /* Slight lift effect on hover */
+}
+
+.mobile-drawer button {
+  background-color: #e74c3c;
+  border: none;
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-drawer button:hover {
+  background-color: #c0392b;
+  transform: translateY(-3px); /* Slight lift effect on hover */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  /* Hide the desktop menu and show mobile menu */
+  .navbar-links {
+    display: none;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+  }
+
+  .navbar-links.active {
+    display: block;
+  }
+
+  .navbar-links.active li {
+    margin: 10px 0;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Ensure the mobile drawer does not show on larger screens */
+  .mobile-drawer {
+    display: none;
+  }
 }
