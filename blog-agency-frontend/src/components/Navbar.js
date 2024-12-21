@@ -70,6 +70,27 @@ const Navbar = ({ isLoggedIn, handleLogout }) => {
       {drawerOpen && (
         <div className="mobile-drawer">
           <ul>
+            <li>
+              <Link to="/blogs" onClick={toggleDrawer}>
+                Blogs
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" onClick={toggleDrawer}>
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link to="/teams" onClick={toggleDrawer}>
+                Team
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" onClick={toggleDrawer}>
+                Contact
+              </Link>
+            </li>
+            {/* Conditionally render login/register or dashboard/logout */}
             {!isLoggedIn ? (
               <>
                 <li>
@@ -96,7 +117,7 @@ const Navbar = ({ isLoggedIn, handleLogout }) => {
                     onClick={(e) => {
                       e.preventDefault();
                       handleLogout();
-                      toggleDrawer();
+                      toggleDrawer(); // Close drawer on logout
                     }}
                   >
                     Logout
@@ -105,6 +126,11 @@ const Navbar = ({ isLoggedIn, handleLogout }) => {
               </>
             )}
           </ul>
+
+          {/* Close button inside mobile drawer */}
+          <button className="close-drawer" onClick={toggleDrawer}>
+            ×
+          </button>
         </div>
       )}
     </nav>

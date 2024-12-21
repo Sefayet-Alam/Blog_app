@@ -127,6 +127,23 @@
   transform: translateY(-3px); /* Slight lift effect on hover */
 }
 
+/* Close button styles inside the mobile drawer */
+.close-drawer {
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #ecf0f1;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: color 0.3s ease;
+}
+
+.close-drawer:hover {
+  color: #ff7f50; /* Change color on hover */
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
   /* Hide the desktop menu and show mobile menu */
@@ -145,11 +162,19 @@
   .navbar-links.active li {
     margin: 10px 0;
   }
+
+  .navbar {
+    padding: 10px 20px;
+  }
 }
 
 @media (min-width: 769px) {
   /* Ensure the mobile drawer does not show on larger screens */
   .mobile-drawer {
     display: none;
+  }
+
+  .mobile-menu-icon {
+    display: none; /* Hide the hamburger menu on desktop */
   }
 }

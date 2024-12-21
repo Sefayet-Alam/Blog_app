@@ -19,12 +19,13 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Use environment variables for EmailJS configuration
     emailjs
       .send(
-        "service_rymuz29",
-        "template_8im5h9g", 
+        process.env.REACT_APP_EMAILJS_SERVICE_ID, // From .env
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID, // From .env
         formData,
-        "XgUZVDCcRbma3m1R1" 
+        process.env.REACT_APP_EMAILJS_USER_ID // From .env
       )
       .then(
         (response) => {

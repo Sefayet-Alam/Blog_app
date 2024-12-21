@@ -1,9 +1,10 @@
 .home {
     font-family: 'Roboto', sans-serif;
-    color: #222; /* Slightly darker than #333 for better contrast */
+    color: #222;
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    text-align: center; /* Ensure the content is center-aligned */
 }
 
 /* Hero Section */
@@ -19,7 +20,6 @@
 
 .hero-overlay {
     background: linear-gradient(135deg, rgba(0, 121, 191, 0.9), rgba(0, 81, 128, 0.9)); 
-    /* Gradient with modern blue tones */
     padding: 20px;
     text-align: center;
     border-radius: 12px;
@@ -28,16 +28,16 @@
 .hero-title {
     font-size: 48px;
     font-weight: bold;
-    color: #ffffff; /* White text for contrast */
+    color: #ffffff;
     margin-bottom: 10px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
     font-size: 20px;
-    color: #e1e1e1; /* Light gray for a modern look */
+    color: #e1e1e1;
     margin-bottom: 20px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Consistent shadow effect */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .cta-button {
@@ -59,7 +59,7 @@
 .home-blogs {
     padding: 50px 20px;
     background: #f9f9f9;
-    text-align: center;
+    text-align: center; /* Ensure it's center-aligned */
 }
 
 .section-title {
@@ -73,14 +73,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
-    /* Center-align blogs */
+    justify-content: center; /* Center-align blog cards */
     margin: 0 auto;
 }
 
 .blog-card {
-    width: 160px; /* Reduced width */
-    padding: 10px; /* Reduced padding */
+    width: 300px; /* Adjusted to match the blog card width in blog.js */
+    padding: 20px;
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -93,24 +92,24 @@
 }
 
 .blog-title {
-    font-size: 10px; /* Reduced font size */
+    font-size: 1.2em;
     font-weight: bold;
     color: #333;
     margin-bottom: 10px;
 }
 
 .blog-snippet {
-    font-size: 14px; /* Reduced font size */
+    font-size: 14px;
     color: #555;
     line-height: 1.4;
-    margin-bottom: 10px; /* Reduced margin */
+    margin-bottom: 10px;
 }
 
 /* Custom Section */
 .custom-section {
     padding: 50px 20px;
     background: #fff;
-    text-align: center;
+    text-align: center; /* Ensure it's center-aligned */
 }
 
 .custom-text {
@@ -127,7 +126,6 @@
 
     .blogs-list {
         flex-direction: column;
-        /* Stack blogs on small screens */
     }
 
     .blog-card {
