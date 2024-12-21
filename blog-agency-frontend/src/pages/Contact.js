@@ -19,21 +19,20 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Use EmailJS to send the form data to your email
     emailjs
       .send(
-        "service_rymuz29", // Replace with your EmailJS service ID
-        "template_8im5h9g", // Replace with your EmailJS template ID
-        formData, // The data to be sent (name, email, message)
-        "XgUZVDCcRbma3m1R1" // Replace with your EmailJS user ID
+        "service_rymuz29",
+        "template_8im5h9g", 
+        formData,
+        "XgUZVDCcRbma3m1R1" 
       )
       .then(
         (response) => {
-          setStatus("Message sent successfully!"); // Success message
-          setFormData({ name: "", email: "", message: "" }); // Clear form fields
+          setStatus("Message sent successfully!"); 
+          setFormData({ name: "", email: "", message: "" }); 
         },
         (error) => {
-          setStatus("Failed to send message, please try again."); // Error message
+          setStatus("Failed to send message, please try again."); 
         }
       );
   };
