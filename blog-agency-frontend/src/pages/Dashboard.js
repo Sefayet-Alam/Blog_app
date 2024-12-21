@@ -118,19 +118,29 @@ const Dashboard = () => {
   };
 
   const renderTable = (rows, columns) => (
-    <TableContainer component={Paper} sx={{ marginTop: 4 }}>
+    <TableContainer component={Paper} sx={{ marginTop: 4, marginBottom: 4 }}>
       <Table>
         <TableHead>
           <TableRow>
             {columns.map((column) => (
-              <TableCell key={column}>{column}</TableCell>
+              <TableCell
+                key={column}
+                sx={{
+                  fontWeight: "bold",
+                  color: "#1976d2", // Apply color to the header text
+                  fontSize: "1.1rem",
+                  textTransform: "uppercase", // Make the column names more stylish
+                }}
+              >
+                {column}
+              </TableCell>
             ))}
-            <TableCell>Actions</TableCell>
+            <TableCell sx={{ fontWeight: "bold", color: "#1976d2" }}>Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow key={row._id}> {/* Ensure _id is used as the key */}
+            <TableRow key={row._id}>
               {columns.map((column) => (
                 <TableCell key={column}>
                   {column === "image" || column === "icon" ? (
@@ -145,9 +155,7 @@ const Dashboard = () => {
                 </TableCell>
               ))}
               <TableCell>
-                <Button onClick={() => handleOpenDialog(selectedEntity, row)}>
-                  Edit
-                </Button>
+                <Button onClick={() => handleOpenDialog(selectedEntity, row)}>Edit</Button>
                 <Button color="error" onClick={() => handleDelete(row._id)}>
                   Delete
                 </Button>
@@ -166,15 +174,12 @@ const Dashboard = () => {
   };
 
   return (
-    <Container>
-      <Typography variant="h4" sx={{ marginBottom: 4, textAlign: "center" }}>
+    <Container className="dashboard">
+      <Typography variant="h4" sx={{ marginBottom: 4, textAlign: "center", marginTop: 4 }}>
         Dashboard
       </Typography>
 
       <div style={{ marginBottom: "20px" }}>
-        <Typography variant="h5" sx={{ marginBottom: 2 }}>
-          Choose Type
-        </Typography>
         <Button
           variant="outlined"
           onClick={() => setSelectedEntity("blogs")}
