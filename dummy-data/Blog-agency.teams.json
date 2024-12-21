@@ -1,0 +1,72 @@
+[{
+  "_id": {
+    "$oid": "6764877f21d9f647ca353f9b"
+  },
+  "name": "Robert Williams",
+  "role": "UI/UX Designer",
+  "image": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61",
+  "bio": "Robert creates user-friendly designs that elevate user experiences.!!",
+  "createdAt": {
+    "$date": "2023-11-26T10:30:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6764877f21d9f647ca353f9c"
+  },
+  "name": "Sophia Johnson",
+  "role": "Backend Developer",
+  "image": "https://cdn.pixabay.com/photo/2016/04/21/22/29/girl-1344646_1280.jpg",
+  "bio": "Sophia specializes in creating efficient, scalable backend systems.",
+  "createdAt": {
+    "$date": "2023-11-26T10:35:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6764877f21d9f647ca353f9d"
+  },
+  "name": "Michael Brown",
+  "role": "Frontend Developer",
+  "image": "https://cdn.pixabay.com/photo/2024/06/22/22/56/man-8847069_1280.jpg",
+  "bio": "Michael crafts modern, responsive frontends for web applications.",
+  "createdAt": {
+    "$date": "2023-11-26T10:40:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6764877f21d9f647ca353f9e"
+  },
+  "name": "Emily Davis",
+  "role": "Project Manager",
+  "image": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e",
+  "bio": "Emily ensures projects are delivered on time and within budget.",
+  "createdAt": {
+    "$date": "2023-11-26T10:45:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6764877f21d9f647ca353f9f"
+  },
+  "name": "David Anderson",
+  "role": "DevOps Engineer",
+  "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+  "bio": "David optimizes deployment pipelines for seamless operations.",
+  "createdAt": {
+    "$date": "2023-11-26T10:50:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67667175b045efaa7d8fecb1"
+  },
+  "name": "Khandoker Sefayet Alam",
+  "role": "Full Stack Developer",
+  "image": "https://media.licdn.com/dms/image/v2/D5603AQEmWRSvG-m3eg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1702235164264?e=1740009600&v=beta&t=PUHcJ8JLdzX5orkzxzxEKfmbHYlcJ76ujxuTWLFuoXw",
+  "bio": "Competitive Programmer || ICPC Asia Dhaka regionalist-2024 || Expert@Codeforces || 4 🌟 @Codechef || 6 Kyu(Green) @Atcoder || MERN stack developer",
+  "createdAt": {
+    "$date": "2023-11-26T10:45:00.000Z"
+  }
+}]

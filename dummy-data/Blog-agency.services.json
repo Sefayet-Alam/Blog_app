@@ -1,0 +1,35 @@
+[{
+  "_id": "6764877221d9f647ca353f8f",
+  "name": "Digital Marketing",
+  "description": "Reach your audience effectively with our digital marketing solutions.",
+  "icon": "https://cdn.pixabay.com/photo/2020/12/09/03/10/digital-marketing-5816304_1280.jpg",
+  "createdAt": "2023-11-18T14:30:00.000Z"
+},
+{
+  "_id": "6764877221d9f647ca353f90",
+  "name": "Web Development",
+  "description": "Build fast, secure, and scalable websites tailored to your needs.",
+  "icon": "https://cdn.pixabay.com/photo/2017/10/10/21/47/laptop-2838921_1280.jpg",
+  "createdAt": "2023-11-18T14:30:00.000Z"
+},
+{
+  "_id": "6764877221d9f647ca353f91",
+  "name": "Graphic Design",
+  "description": "Transform ideas into stunning visuals with our design services.",
+  "icon": "https://cdn.pixabay.com/photo/2017/10/10/21/47/laptop-2838921_1280.jpg",
+  "createdAt": "2023-11-18T14:30:00.000Z"
+},
+{
+  "_id": "6764877221d9f647ca353f92",
+  "name": "SEO Optimization",
+  "description": "Improve your search engine rankings with our expert SEO techniques.",
+  "icon": "https://cdn.pixabay.com/photo/2019/04/07/23/11/search-engine-optimization-4111000_1280.jpg",
+  "createdAt": "2023-11-18T14:30:00.000Z"
+},
+{
+  "_id": "6764877221d9f647ca353f93",
+  "name": "Content Creation",
+  "description": "Engage your audience with high-quality content tailored to your brand.",
+  "icon": "https://cdn.pixabay.com/photo/2019/04/07/23/11/content-marketing-4111003_1280.jpg",
+  "createdAt": "2023-11-18T14:30:00.000Z"
+}]
