@@ -21,6 +21,10 @@ This project is a full-stack web application that allows users to manage blogs, 
 ![blogapp_04](https://github.com/user-attachments/assets/f1801dca-1cf2-4595-babf-b980c5d0a6d8)
 ![blog_app_05](https://github.com/user-attachments/assets/dcd1e8ed-23d7-48c9-8e6e-cd248c30b4ac)
 
+## Manager Acc:
+email: sefayetalam14@gmail.com
+pass: 12345
+
 ## About Me
 
 Hi, I'm **Sefayet Alam**, the developer behind this project!  
