@@ -78,7 +78,7 @@ const Contact = () => {
         <div className="contact-info">
           <div className="profile-section">
             <img
-              src="https://blog-agency-sef.netlify.app/contact"
+              src="https://github.com/Sefayet-Alam/Blog_app/blob/main/pfp.jpg?raw=true"
               alt="Profile"
               className="profile-pic"
             />
